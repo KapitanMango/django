@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% load staticfiles %} {% block title %}Plan - {% endblock %} {% block header %}
+
+<nav>
+  {% if user.is_authenticated %}
+  <ul id="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/planowanie/">Planuj</a></li>
+        <li><a href="/koszyk/">Twoje plany</a></li>
+  </ul>
+  {% else %}
+                        <ul id="menu">
+                            	<li><a href="/">Home</a></li>
+                            	<li><a href="/">O nas</a></li>
+                            	<li><a href="/">Kontakt</a></li>
+                        </ul>
+  {% endif %}
+</nav>
+{% endblock %} {% block content %}
+<section class="featured">
+  <div class="content-wrapper">
+  </div>
+</section>
+<section class="niewiesz">
+  <div class="cotojest">
+
+    <ul>
+      <li><b>Nazwa:</b> {{atrakcja.nazwa}}</li>
+      <li><b>Typ:</b> {{atrakcja.typ}}</li>
+      <li><b>Adres:</b></li>
+      <li><b>-ulica:</b> {{atrakcja.adres.ulica}}</li>
+      <li><b>-numer budynku:</b> {{atrakcja.adres.nr_budynku}}</li>
+      <li><b>Czas otwarcia:</b></li>
+      <li><b>-od:</b> {{atrakcja.czas_otwarcia}}</li>
+      <li><b>-do:</b> {{atrakcja.czas_zamkniecia}}</li>
+      <li><b>Czas potrzebny do zwiedzenia:</b> {{atrakcja.czas}}</li>
+      <li><b>Cena za bilet:</b> {{atrakcja.cena}}</li>
+      <li><b>Opis:</b></li>
+      <li>{{atrakcja.opis}}</li>
+    </ul>
+  </div>
+</section>
+
+
+
+{% endblock %}

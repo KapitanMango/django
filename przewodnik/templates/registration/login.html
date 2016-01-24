@@ -1,0 +1,27 @@
+﻿{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Logowanie - {% endblock %}
+{% block header %}
+<nav>
+                        <ul id="menu">
+                            	<li><a href="/">Home</a></li>
+                            	<li>O nas</li>
+                            	<li>Kontakt</li>
+                        </ul>
+                    </nav>
+{% endblock %} 
+{% block content %}
+<center>
+<h2>Logowanie</h2>
+<p>
+<div>
+<fieldset>
+    <form method="post" action=".">{% csrf_token %}
+    <div>{{ form.as_p }}</div>
+    <input type="hidden" name="next" value="/" />
+    <input type="submit" value="Zaloguj"/>    
+  </form>
+</fieldset>
+</div>
+</center>
+{% endblock %}

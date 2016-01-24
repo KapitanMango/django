@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<title>{% block title %} {% endblock %}Zaplanuj swoją wycieczkę</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'strona.css' %}" />
+	<link rel="shortcut icon" type="image/x-icon " href="{% static 'favicon.ico' %} " />
+
+</head>
+<body>
+
+	<header>
+		<div class="content-wrapper">
+			<div class="float-left">
+				<p class="site-title">Zaplanuj swoją wycieczkę</p>
+</div>
+<div class="float-right">
+			<section id="login">
+				{% if user.is_authenticated %} Witaj <b>{{user.username}}</b><a href="/logout/ ">wyloguj się</a>
+				{% else %}
+					<ul>
+
+						<li><a href="/register/">Rejestracja</a></li>
+						<li><a href="/login/">Logowanie</a></li>
+					</ul>
+				{% endif %}
+
+			</section>
+
+		{%block header%} {%endblock%}
+
+</div>
+		</div>
+	</header>
+	<div id="body">
+	{%block content%}
+	{%endblock%}
+
+	</div>
+
+	<footer>
+		<div class="content-wrapper">
+			<div class="float-left">
+				<p>&copy; Sylwia Malesza i Adam Dąbrowski - Zaplanuj swoją wycieczkę</p>
+			</div>
+
+		</div>
+
+	</footer>
+
+</body>
+
+
+</html>

@@ -1,0 +1,90 @@
+﻿{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Strona główna - {% endblock %}
+{% block header %}
+<nav>
+  {% if user.is_authenticated %}
+  <ul id="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/planowanie/">Planuj</a></li>
+        <li><a href="/koszyk/">Twoje plany</a></li>
+  </ul>
+  {% else %}
+                        <ul id="menu">
+                            	<li><a href="/">Home</a></li>
+                            	<li><a href="/">O nas</a></li>
+                            	<li><a href="/">Kontakt</a></li>
+                        </ul>
+  {% endif %}
+</nav>
+{% endblock %}
+{% block content %}
+
+<section class="featured">
+        	<div class="content-wrapper">
+            		<hgroup class="title">
+                		<h1>Chcesz zaplanować wycieczkę?</h1>
+                		<h2>Skorzystaj z naszego systemu i łatwo zaplanuj swój wyjazd.</h2>
+            		</hgroup>
+            		<p>Dzięki temu pozbędziesz się niepewności w podróży, bo cały plan będzie
+			już przygotowany!</p>
+        	</div>
+    	</section>
+
+{% if user.is_authenticated %}
+
+	<section class="niewiesz">
+        <div class="cotojest">
+    <h3>Nie wiesz od czego zacząć?</h3>
+
+<ol class="round">
+    <li class="one">
+        <h5>Zaplanuj wycieczkę</h5>
+        Wybierz dostępne atrakcje i krok po kroku, zabytek po zabytku,
+	 skomponuj swoją podróż.<br/>
+        <a href="/planowanie/">Kliknij tutaj, aby przejść do planowania</a>
+    </li>
+    <li class="two">
+        <h5>Przejrzyj gotowe wycieczki</h5>
+        Zobacz stworzone przez nas wycieczki - może któraś przypadnie ci do gustu.<br/>
+        <a href="/">Kliknij tutaj, aby przejść do przeglądania</a>
+    </li>
+    <li class="three">
+        <h5>Twoje wycieczki</h5>
+        Sprawdź stworzone przez ciebie wycieczki.<br/>
+        <a href="/koszyk/">Kliknij tutaj, aby przejść do twoich planow</a>
+    </li>
+</ol>
+</div>
+</section>
+
+{% else %}
+	<section class="niewiesz">
+        <div class="cotojest">
+    <h3>Nie wiesz od czego zacząć?</h3>
+
+<ol class="round">
+    <li class="one">
+        <h5>Zaloguj się</h5>
+        Zaloguj się, aby mieć dostęp do systemu planowania wycieczek,
+	do wcześniej stworzonych przez siebie podróży, statystyk i
+	wielu innych opcji.<br/>
+        <a href="/login/">Kliknij tutaj, aby przejść do logowania</a>
+    </li>
+    <li class="two">
+        <h5>Nie masz konta?Zarejestruj się</h5>
+        Rejestracaj jest bardzo prosta i bezpłatna. Chwilę po zarejestrowaniu twoje
+	konto zostanie utworzone i gotowe do użycia, udestępniając ci wszystkie
+	swoje możliwości!<br/>
+        <a href="/register/">Kliknij tutaj, aby przejść do rejestracji</a>
+    </li>
+
+    <li class="three">
+        <h5>Planuj!</h5>
+        Teraz nic nie stoi na przeszkodzie, abyś planował swoje podróże bez żadnych ograniczeń! :)
+    </li>
+</ol>
+</div>
+</section>
+{% endif %}
+{% endblock %}

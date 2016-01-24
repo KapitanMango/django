@@ -1,0 +1,27 @@
+﻿{% extends "base.html"%}
+{% load staticfiles %}
+{% block title %}Rejestracja-{% endblock %}
+{% block header %}
+<nav>
+                        <ul id="menu">
+                            	<li><a href="/">Home</a></li>
+                            	<li>O nas</li>
+                            	<li>Kontakt</li>
+                        </ul>
+                    </nav>
+{% endblock %}   
+{% block content %}
+<center>
+<h2>Rejestracja nowego konta</h2>
+<p>Rejetracja jest wymagana, jeżeli chcesz tworzyć własne podróże.</p>
+<div>
+<fieldset>
+  <legend> Wszystkie pola oznaczone "*" są wymagane do rejestracji </legend>
+    <form method="post" action=".">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Rejestracja">    <input type="reset" value="Reset">
+  </form>
+</fieldset>
+</div>
+</center>
+{% endblock %}
